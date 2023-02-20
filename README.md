@@ -8,7 +8,7 @@
     <img alt="Tests" src="https://img.shields.io/github/actions/workflow/status/mohitsinghs/repo.nvim/tests.yml?style=flat-square" />
   </a>
   <a href="https://github.com/mohitsinghs/repo.nvim/actions/workflows/linter.yml">
-    <img alt="Linting" src="https://img.shields.io/github/actions/workflow/status/mohitsinghs/repo.nvim/liniter.yml?style=flat-square" />
+    <img alt="Linting" src="https://img.shields.io/github/actions/workflow/status/mohitsinghs/repo.nvim/linter.yml?style=flat-square" />
   </a>
   <a href="https://github.com/mohitsinghs/repo/blob/main/LICENSE">
     <img alt="LICENSE" src="https://img.shields.io/github/license/mohitsinghs/repo?style=flat-square" />
