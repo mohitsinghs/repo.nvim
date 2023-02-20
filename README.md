@@ -15,6 +15,30 @@
   </a>
 </p>
 
+## Installations
+
+This extension depends on [repo](https;//github.com/mohitsinghs/repo). You can install relevant binary for your platform.
+
+```lua
+-- lazy.nvim
+{
+ 'nvim-telescope/telescope.nvim',
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'mohitsinghs/repo.nvim',
+  },
+  config = function()
+    -- telescope configs
+    require'telescope'.load_extension'repo'
+    -- other telescope configs
+  end,
+}
+```
+
+## Usage
+
+`:Telescope repo` - Lists all available repositories.
+
 ## Development
 
 ### Run tests
@@ -33,3 +57,9 @@ nvim --headless --noplugin -u tests/minimal.vim -c "PlenaryBustedDirectory tests
 ```
 
 [plenary]: https://github.com/nvim-lua/plenary.nvim
+
+## TODO
+
+- [x] Telescope integration
+- [ ] Neotree integration
+- [ ] Tests
