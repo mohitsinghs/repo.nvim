@@ -14,7 +14,7 @@
 
 ## Installations
 
-This extension depends on [repo](https;//github.com/mohitsinghs/repo). You can install relevant binary for your platform.
+This extension depends on [repo](https://github.com/mohitsinghs/repo). You can install relevant binary for your platform.
 
 ```lua
 -- lazy.nvim
