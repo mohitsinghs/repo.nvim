@@ -58,5 +58,5 @@ nvim --headless --noplugin -u tests/minimal.vim -c "PlenaryBustedDirectory tests
 ## TODO
 
 - [x] Telescope integration
-- [ ] Neotree integration
+- [x] Neotree integration
 - [ ] Tests
