@@ -1,5 +1,5 @@
 local manager = require("neo-tree.sources.manager")
-local repo = require("neo-tree.sources.repo.repo")
+local repo = require("neo-tree.sources.repo.tree")
 
 local M = { name = "repo" }
 
