@@ -4,8 +4,6 @@ local common = require("neo-tree.sources.common.components")
 local M = {
   internal = {
     repo_icon = " ",
-    folder_icon = " ",
-    folder_open_icon = " ",
   },
 }
 
@@ -17,9 +15,9 @@ M.icon = function(config, node, _)
     if node.loaded and not node:has_children() then
       icon = not node.empty_expanded and config.folder_empty or config.folder_empty_open
     elseif node:is_expanded() then
-      icon = M.internal.folder_open_icon
+      icon = config.folder_open
     else
-      icon = M.internal.folder_icon
+      icon = config.folder_closed
     end
   elseif node.ext == "repo" then
     icon = M.internal.repo_icon
