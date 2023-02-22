@@ -16,6 +16,10 @@
 
 This extension depends on [repo](https://github.com/mohitsinghs/repo). You can install relevant binary for your platform.
 
+### With Telescope
+
+It provides a list of repositories to switch between.
+
 ```lua
 -- lazy.nvim
 {
@@ -32,9 +36,37 @@ This extension depends on [repo](https://github.com/mohitsinghs/repo). You can i
 }
 ```
 
+### With Neotree
+
+It provides a tree of repositories to switch between.
+
+```lua
+ {
+  "nvim-neo-tree/neo-tree.nvim",
+  branch = "v2.x",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "MunifTanjim/nui.nvim",
+    'mohitsinghs/repo.nvim',
+  },
+ config = function()
+   require('neotree').setup({
+     -- neotree config
+     sources = {
+        -- other sources
+       "repo",
+     },
+     -- other neotree configs
+   })
+ end
+}
+```
+
 ## Usage
 
-`:Telescope repo` - Lists all available repositories.
+- `:Telescope repo` - Lists all available repositories in telescope.
+- `:Neotree focus repo` - focus on tree of repositories in neo-tree sidebar
 
 ## Development
 
@@ -54,9 +86,3 @@ nvim --headless --noplugin -u tests/minimal.vim -c "PlenaryBustedDirectory tests
 ```
 
 [plenary]: https://github.com/nvim-lua/plenary.nvim
-
-## TODO
-
-- [x] Telescope integration
-- [x] Neotree integration
-- [ ] Tests
