@@ -12,9 +12,9 @@ local function create_repo(val)
   }
 end
 
-local function create_folder(key, children)
+local function create_folder(id, key, children)
   return {
-    id = key,
+    id = id,
     name = key,
     type = "directory",
     ext = "folder",
@@ -32,8 +32,9 @@ local function populate(context, item)
     elseif type(key) == "number" then
       table.insert(result, create_repo(val))
     else
-      table.insert(context.folders, key)
-      table.insert(result, create_folder(key, populate(context, val)))
+      local folder_id = os.time() .. key
+      table.insert(context.folders, folder_id)
+      table.insert(result, create_folder(folder_id, key, populate(context, val)))
     end
   end
   return result
@@ -68,8 +69,9 @@ M.find_repos = function(state)
   }
 
   for key, item in pairs(decoded) do
-    table.insert(context.folders, key)
-    table.insert(root.children, create_folder(key, populate(context, item)))
+    local folder_id = os.time() .. key
+    table.insert(context.folders, folder_id)
+    table.insert(root.children, create_folder(folder_id, key, populate(context, item)))
   end
 
   state.default_expanded_nodes = {}
