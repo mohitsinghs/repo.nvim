@@ -69,9 +69,15 @@ M.find_repos = function(state)
   }
 
   for key, item in pairs(decoded) do
-    local folder_id = os.time() .. key
-    table.insert(context.folders, folder_id)
-    table.insert(root.children, create_folder(folder_id, key, populate(context, item)))
+    if key == "_children" then
+      for _, v in pairs(item) do
+        table.insert(root.children, create_repo(v))
+      end
+    else
+      local folder_id = os.time() .. key
+      table.insert(context.folders, folder_id)
+      table.insert(root.children, create_folder(folder_id, key, populate(context, item)))
+    end
   end
 
   state.default_expanded_nodes = {}
