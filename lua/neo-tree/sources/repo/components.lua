@@ -3,7 +3,7 @@ local common = require("neo-tree.sources.common.components")
 
 local M = {
   internal = {
-    repo_icon = " ",
+    repo_icon = "",
   },
 }
 
