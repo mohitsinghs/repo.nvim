@@ -1,5 +1,6 @@
 local cc = require("neo-tree.sources.common.commands")
 local renderer = require("neo-tree.ui.renderer")
+local command = require("neo-tree.command")
 
 local M = { name = "repo" }
 
@@ -22,7 +23,7 @@ M.open = function(state)
   else
     local path = node.id
     vim.cmd("cd" .. path)
-    renderer.redraw(state)
+    command.execute({ action = "focus", source = "filesystem" })
   end
 end
 
