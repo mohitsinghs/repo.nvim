@@ -10,7 +10,8 @@ local M = {
 M.icon = function(config, node, _)
   local icon = config.default or " "
   local highlight = config.highlight or highlights.FILE_ICON
-  if node.ext == "folder" then
+  local extra = node.extra or {}
+  if extra.kind == "folder" then
     highlight = highlights.DIRECTORY_ICON
     if node.loaded and not node:has_children() then
       icon = not node.empty_expanded and config.folder_empty or config.folder_empty_open
@@ -19,7 +20,7 @@ M.icon = function(config, node, _)
     else
       icon = config.folder_closed
     end
-  elseif node.ext == "repo" then
+  elseif extra.kind == "repo" then
     icon = M.internal.repo_icon
   end
 

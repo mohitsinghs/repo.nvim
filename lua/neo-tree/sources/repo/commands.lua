@@ -10,7 +10,9 @@ M.open = function(state)
   if not (success and node) then
     return
   end
-  if node.ext == "folder" then
+  print("open called", vim.inspect(node))
+  local extra = node.extra or {}
+  if extra.kind == "folder" then
     local updated = false
     if node:is_expanded() then
       updated = node:collapse()
@@ -20,8 +22,8 @@ M.open = function(state)
     if updated then
       renderer.redraw(state)
     end
-  else
-    local path = node.id
+  elseif extra.kind == "repo" then
+    local path = extra.location
     vim.cmd("cd" .. path)
     command.execute({ action = "focus", source = "filesystem" })
   end

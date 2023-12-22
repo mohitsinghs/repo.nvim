@@ -5,10 +5,13 @@ local M = {}
 
 local function create_repo(val)
   return {
-    id = val.location,
+    id = os.time() .. "_" .. val.label,
     name = val.label,
     type = "directory",
-    ext = "repo",
+    extra = {
+      kind = "repo",
+      location = val.location,
+    },
   }
 end
 
@@ -17,8 +20,10 @@ local function create_folder(id, key, children)
     id = id,
     name = key,
     type = "directory",
-    ext = "folder",
     children = children,
+    extra = {
+      kind = "folder",
+    },
   }
 end
 
@@ -32,7 +37,7 @@ local function populate(context, item)
     elseif type(key) == "number" then
       table.insert(result, create_repo(val))
     else
-      local folder_id = os.time() .. key
+      local folder_id = os.time() .. "_" .. key
       table.insert(context.folders, folder_id)
       table.insert(result, create_folder(folder_id, key, populate(context, val)))
     end
@@ -74,7 +79,7 @@ M.find_repos = function(state)
         table.insert(root.children, create_repo(v))
       end
     else
-      local folder_id = os.time() .. key
+      local folder_id = os.time() .. "_" .. key
       table.insert(context.folders, folder_id)
       table.insert(root.children, create_folder(folder_id, key, populate(context, item)))
     end
