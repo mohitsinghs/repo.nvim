@@ -70,4 +70,4 @@ It provides a tree of repositories to switch between.
 
 ## Configuration
 
-See [repo][https://github.com/mohitsinghs/repo#configuration]
+See [repo](https://github.com/mohitsinghs/repo#configuration)
