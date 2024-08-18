@@ -10,7 +10,6 @@ M.open = function(state)
   if not (success and node) then
     return
   end
-  print("open called", vim.inspect(node))
   local extra = node.extra or {}
   if extra.kind == "folder" then
     local updated = false
