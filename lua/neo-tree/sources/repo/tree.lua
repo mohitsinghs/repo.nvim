@@ -11,6 +11,8 @@ local function create_repo(val)
     extra = {
       kind = "repo",
       location = val.location,
+      provider = val.provider,
+      branch = val.branch,
     },
   }
 end

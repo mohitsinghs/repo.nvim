@@ -4,6 +4,10 @@ local common = require("neo-tree.sources.common.components")
 local M = {
   internal = {
     repo_icon = "",
+    github_icon = "",
+    gitlab_icon = "",
+    bitbucket_icon = "",
+    azure_icon = "",
   },
 }
 
@@ -21,7 +25,17 @@ M.icon = function(config, node, _)
       icon = config.folder_closed
     end
   elseif extra.kind == "repo" then
-    icon = M.internal.repo_icon
+    if extra.provider == "github" then
+      icon = M.internal.github_icon
+    elseif extra.provider == "gitlab" then
+      icon = M.internal.gitlab_icon
+    elseif extra.provider == "bitbucket" then
+      icon = M.internal.bitbucket_icon
+    elseif extra.provider == "azure" then
+      icon = M.internal.azure_icon
+    else
+      icon = M.internal.repo_icon
+    end
   end
 
   return {
