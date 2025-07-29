@@ -5,7 +5,7 @@ local M = {}
 
 local function create_repo(val)
   return {
-    id = os.time() .. "_" .. val.label,
+    id = os.time() .. math.random(1000) .. "_" .. val.label,
     name = val.label,
     type = "directory",
     extra = {
