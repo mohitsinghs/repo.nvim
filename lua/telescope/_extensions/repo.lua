@@ -65,7 +65,7 @@ local function find_repos(opts)
 
   table.insert(repo_command, find_repos_args)
   table.insert(repo_command, opts.search_dirs)
-  repo_command = vim.iter(repo_command):flatten()
+  repo_command = vim.iter(repo_command):flatten():totable()
 
   pickers
     .new({
