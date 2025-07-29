@@ -10,7 +10,7 @@ local utils = require("telescope.utils")
 local Path = require("plenary.path")
 local telescope = require("telescope")
 
-local home_dir = vim.loop.os_homedir()
+local home_dir = vim.uv.os_homedir()
 
 local function simplify_path(path)
   if path == Path.path.root() then
@@ -65,7 +65,7 @@ local function find_repos(opts)
 
   table.insert(repo_command, find_repos_args)
   table.insert(repo_command, opts.search_dirs)
-  repo_command = vim.tbl_flatten(repo_command)
+  repo_command = vim.iter(repo_command):flatten()
 
   pickers
     .new({
